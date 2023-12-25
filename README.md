@@ -1,2 +1,2 @@
 # rust_coursera
-Learbing Rust with coursera courses
+Learning Rust with coursera courses
