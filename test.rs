@@ -19,6 +19,8 @@ fn inverse_matrix(matrix: [[f64; 2]; 2]) -> Option<[[f64; 2]; 2]> {
     }
 }
 
+
+
 // Call the average function with somme numbers
 fn main() {
     //let numbers = [1, 2, 3, 4, 5];
