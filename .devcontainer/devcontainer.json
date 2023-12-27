@@ -24,7 +24,7 @@
 				"ms-azuretools.vscode-docker",
 				"tamasfe.even-better-toml",
 				"vscode-icons-team.vscode-icons"
-			],
+			],			
 			"settings": {
 				"workbench.colorTheme": "Default Dark+",
 				"workbench.iconTheme": "vscode-icons",
@@ -41,7 +41,7 @@
 				"editor.renderControlCharacters": true,
 				"editor.renderIndentGuides": true,
 				"editor.renderLineHighlight": "all",
-				"editor.autoIndent": true,
+				"editor.autoIndent": "none",
 				"editor.minimap.enabled": true,
 				"editor.quickSuggestions": { "other": true, "comments": false, "strings": false },
 				"files.autoSave": "onFocusChange",
@@ -49,7 +49,7 @@
 			}
 		}
 	}
-
+	
 	// Use 'mounts' to make the cargo cache persistent in a Docker Volume.
 	// "mounts": [
 	// 	{
