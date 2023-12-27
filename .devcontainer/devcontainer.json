@@ -22,8 +22,31 @@
 				"TzachOvadia.todo-list",
 				"statiolake.vscode-rustfmt",
 				"ms-azuretools.vscode-docker",
-				"tamasfe.even-better-toml"
-			]
+				"tamasfe.even-better-toml",
+				"vscode-icons-team.vscode-icons"
+			],
+			"settings": {
+				"workbench.colorTheme": "Default Dark+",
+				"workbench.iconTheme": "vscode-icons",
+				"editor.fontFamily": "Fira Code",
+				"editor.fontLigatures": true,
+				"editor.fontSize": 14,
+				"editor.formatOnSave": true,
+				"editor.defaultFormatter": "rust-lang.rust-analyzer",
+				"editor.rulers": [80, 120],
+				"editor.tabSize": 4,
+				"editor.wordWrap": "on",
+				"editor.wordWrapColumn": 120,
+				"editor.renderWhitespace": "all",
+				"editor.renderControlCharacters": true,
+				"editor.renderIndentGuides": true,
+				"editor.renderLineHighlight": "all",
+				"editor.autoIndent": true,
+				"editor.minimap.enabled": true,
+				"editor.quickSuggestions": { "other": true, "comments": false, "strings": false },
+				"files.autoSave": "onFocusChange",
+				"files.trimTrailingWhitespace": true
+			}
 		}
 	}
 
