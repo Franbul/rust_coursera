@@ -21,7 +21,8 @@
 				"GitHub.copilot-chat",
 				"TzachOvadia.todo-list",
 				"statiolake.vscode-rustfmt",
-				"ms-azuretools.vscode-docker"
+				"ms-azuretools.vscode-docker",
+				"tamasfe.even-better-toml"
 			]
 		}
 	}
