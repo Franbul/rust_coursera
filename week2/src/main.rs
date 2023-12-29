@@ -1,16 +1,29 @@
 fn main() {
-    let proceed = True;
+    // Manage proceed
+    let proceed: bool = true;
     if proceed {
-        println!("Proceed");
+        println!("Proceeding");
     } else {
-        println!("Stop");
+        println!("Not proceeding");
     }
-}
-    let heigth = 190;
-    if height > 180 {
+
+    // Manage height
+    let height: i32 = 183;
+    if height > 185 {
         println!("Tall");
     } else if height > 170 {
-        println!("medium");
+        println!("Average");
     } else {
         println!("Short");
     }
+
+    // Manage Age
+    let age: i32 = 17;
+    if age > 18 {
+        println!("adult")
+    } else if age > 12 {
+        println!("teenager")
+    } else {
+        println!("child")
+    }
+}
