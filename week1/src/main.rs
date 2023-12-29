@@ -5,7 +5,7 @@ fn average(numbers: &[i32]) -> f64 {
         sum += num;
     }
     (sum as f64) / (numbers.len() as f64)
-}   
+}
 
 fn inverse_matrix(matrix: [[f64; 2]; 2]) -> Option<[[f64; 2]; 2]> {
     let det = matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0];
@@ -29,5 +29,3 @@ fn main() {
 // Run: rustc test.rs
 // Run: ./test
 // Output: The average is 3
-
-
