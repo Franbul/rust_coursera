@@ -224,6 +224,11 @@ fn get_item(index: usize) {
     println!("The value at index {} is {:?}", index, value);
 }
 
+// create a function to sum items with iterators
+fn sum_items_with_iterator(vec: &Vec<i32>) -> i32 {
+    vec.iter().sum()
+}
+
 fn vector_sum(vec: &Vec<i32>) -> i32 {
     let mut sum = 0;
     for value in vec {
@@ -252,6 +257,9 @@ fn exercice8() {
 
     let vector_sum = vector_sum(&vec);
     println!("The sum of the vector is: {}", vector_sum);
+
+    let vector_sum_iter = sum_items_with_iterator(&vec);
+    println!("The sum of the vector with iter is: {}", vector_sum_iter);
 }
 
 fn add_item_begin_end_vectors(v: &mut Vec<i32>, item: i32) {
@@ -340,16 +348,14 @@ fn main() {
     // String manipulation
     //exercice6();
 
-    // Manque tous les autres exercices
-    // Ecrasés par ce putain de Git
-    // et ça continue
+    // Il n'y a pas de 7
 
-    // Vector items sum
+    // Vector items sum + iterators
     //exercice8()
 
     // Vector methods
     //exercice9();
 
     // HashMap
-    //exercice10();
+    exercice10();
 }
