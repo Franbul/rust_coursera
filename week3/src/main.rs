@@ -228,5 +228,8 @@ fn main() {
     //exercic5();
 
     // String manipulation
-    exercice6();
+    //exercice6();
+
+    // Manque tous les autres exercices
+    // Ecrasés par ce putain de Git
 }
