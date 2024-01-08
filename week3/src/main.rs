@@ -12,6 +12,14 @@ struct Person2 {
     size: Option<u8>,
 }
 
+#[derive(Debug)]
+struct Person3 {
+    first_name: String,
+    last_name: String,
+    age: u8,
+    uri: String,
+}
+
 struct User {
     username: String,
     email: String,
@@ -76,6 +84,68 @@ fn exerice2() {
     println!("The personn size is : {:?}", myself.size);
 }
 
+impl Person3 {
+    fn new(first_name: &str, last_name: &str, age: u8) -> Self {
+        Self {
+            first_name: first_name.to_string(),
+            last_name: last_name.to_string(),
+            age,
+            uri: String::new(),
+        }
+    }
+
+    fn update_uri(&mut self, uri: &str) {
+        if self.first_name.is_empty() {
+            panic!("first_name is empty");
+        }
+
+        if uri.is_empty() {
+            self.uri = format!("https://www.google.com/search?q={}", self.first_name);
+        } else {
+            self.uri = uri.to_string();
+        }
+    }
+
+    fn from_email(email_adress: &str) -> Self {
+        // get first part of email_adress
+        let mut parts = email_adress.split('@');
+        let full_name = parts.next().unwrap();
+
+        // how to split full_name to get first_name and last_name ?
+        let mut name_parts = full_name.split('.');
+        let first_name = name_parts.next().unwrap();
+        let last_name = name_parts.next().unwrap();
+
+        Self::new(first_name, last_name, 0)
+    }
+
+    fn full_name(&self) -> String {
+        let mut full_name = self.first_name.clone();
+        full_name.push_str(" ");
+        full_name.push_str(&self.last_name);
+        full_name
+    }
+}
+
+fn exercice4() {
+    let mut john = Person3::new("John", "Doe", 25);
+    println!("{:?}", john);
+
+    let mut john_bis = Person3::from_email("john.doe@gmail.com");
+    println!("{:?}", john_bis);
+
+    john_bis.update_uri(""); // Pass the required argument to the update_uri function
+    println!("{:?}", john_bis);
+
+    // Pour convertir un String en &str
+    let my_name = format!(
+        "{} {}",
+        john_bis.first_name.as_str(),
+        john_bis.last_name.as_str(),
+    );
+    println!("{}", my_name);
+}
+
 fn main() {
     // Concatenation of full name from a struct
     //exerice1();
@@ -84,5 +154,8 @@ fn main() {
     //exerice2();
 
     // Structs and methods
-    exercice3();
+    //exercice3();
+
+    // Labo : associated functions and constructors
+    exercice4();
 }
