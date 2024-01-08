@@ -385,6 +385,42 @@ fn exercice11() {
     println!("Wine 3: {} from {:?}", wine3.name, wine3.region);
 }
 
+fn exercice12() {
+    enum FileSize {
+        Bytes(u128),
+        Kilobytes(u128),
+        Megabytes(u128),
+        Gigabytes(u128),
+        Terabyte(u128),
+    }
+
+    fn format_size(size: u128) -> String {
+        let filesize = match size {
+            0..=999 => FileSize::Bytes(size),
+            1000..=999_999 => FileSize::Kilobytes(size / 1000),
+            1_000_000..=999_999_999 => FileSize::Megabytes(size / 1_000_000),
+            1_000_000_000..=999_999_999_999 => FileSize::Gigabytes(size / 1_000_000_000),
+            1_000_000_000_000..=999_999_999_999_999 => FileSize::Terabyte(size / 1_000_000_000_000),
+            _ => FileSize::Terabyte(size / 1_000_000_000_000),
+        };
+
+        match filesize {
+            FileSize::Bytes(bytes) => format!("{} bytes", bytes),
+            FileSize::Kilobytes(kb) => format!("{:.2} KB", kb as f64 / 1000.0),
+            FileSize::Megabytes(mb) => format!("{:.2} MB", mb as f64 / 1000.0),
+            FileSize::Gigabytes(gb) => format!("{:.2} GB", gb as f64 / 1000.0),
+            FileSize::Terabyte(tb) => format!("{:.2} TB", tb as f64 / 1000.0),
+        }
+    }
+
+    fn get_file_size_in_largest_possible_unit(size: u128) {
+        let result = format_size(size); // Convert u64 to u128
+        println!("{}", result);
+    }
+
+    get_file_size_in_largest_possible_unit(6880389113739);
+}
+
 fn main() {
     // Concatenation of full name from a struct
     //exerice1();
@@ -416,5 +452,8 @@ fn main() {
     //exercice10();
 
     // Enum
-    exercice11();
+    //exercice11();
+
+    // Enum with match
+    exercice12();
 }
