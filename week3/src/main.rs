@@ -421,6 +421,26 @@ fn exercice12() {
     get_file_size_in_largest_possible_unit(6880389113739);
 }
 
+fn exercice13() {
+    fn divide(x: i32, y: i32) -> Option<i32> {
+        if y == 0 {
+            None // This is valid because it is the other variant of Option
+        } else {
+            Some(x / y) // Creates the Option<i32> value. Some() creates a new instance of Option
+        }
+    }
+
+    let a = 10;
+    let b = 2;
+
+    let result = divide(a, b);
+
+    match result {
+        Some(x) => println!("Result: {}", x),
+        None => println!("Error: division by zero"),
+    }
+}
+
 fn main() {
     // Concatenation of full name from a struct
     //exerice1();
@@ -455,5 +475,8 @@ fn main() {
     //exercice11();
 
     // Enum with match
-    exercice12();
+    //exercice12();
+
+    // Enum with match
+    exercice13();
 }
