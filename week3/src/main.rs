@@ -441,6 +441,52 @@ fn exercice13() {
     }
 }
 
+fn exercice14() {
+    #[derive(Debug)]
+    enum Shape {
+        Circle(f64),
+        Square(f64),
+        Triangle(f64, f64),
+    }
+
+    let shapes = vec![
+        Shape::Circle(5.0),
+        Shape::Square(3.0),
+        Shape::Triangle(10.0, 4.0),
+    ];
+
+    fn get_larger_shape(shapes: &[Shape]) -> Option<&Shape> {
+        let mut larger_shape: Option<&Shape> = None;
+        let mut larger_area = 0.0;
+        for shape in shapes {
+            let area = match shape {
+                Shape::Circle(radius) => std::f64::consts::PI * radius * radius,
+                Shape::Square(length) => length * length,
+                Shape::Triangle(base, height) => 0.5 * base * height,
+            };
+
+            if area > larger_area {
+                larger_area = area;
+                larger_shape = Some(shape);
+            }
+        }
+        larger_shape
+    }
+
+    let total_area: f64 = shapes
+        .iter()
+        .map(|shape| match shape {
+            Shape::Circle(radius) => std::f64::consts::PI * radius * radius,
+            Shape::Square(length) => length * length,
+            Shape::Triangle(base, height) => 0.5 * base * height,
+        })
+        .sum();
+
+    println!("Total area: {} sq. units", total_area);
+    let largest_shape = get_larger_shape(&shapes);
+    println!("The largest shape is {:?}", largest_shape);
+}
+
 fn main() {
     // Concatenation of full name from a struct
     //exerice1();
@@ -478,5 +524,8 @@ fn main() {
     //exercice12();
 
     // Enum with match
-    exercice13();
+    // exercice13();
+
+    // iterators with Enum and match
+    exercice14()
 }
