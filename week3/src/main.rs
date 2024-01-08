@@ -146,6 +146,18 @@ fn exercice4() {
     println!("{}", my_name);
 }
 
+fn exercic5() {
+    // derive génère automatiquement les implémentations de certaines traits
+    // comme Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord
+    // https://doc.rust-lang.org/reference/attributes/derive.html
+    #[derive(Debug)]
+    struct Point(i32, i32);
+
+    let p = Point(1, 0); // Des paranethèses sont utilisées pour créer une instance d'un tuple struct
+    println!("p.x = {}", p.0);
+    println!("p.y = {}", p.1);
+}
+
 fn main() {
     // Concatenation of full name from a struct
     //exerice1();
@@ -157,5 +169,8 @@ fn main() {
     //exercice3();
 
     // Labo : associated functions and constructors
-    exercice4();
+    //exercice4();
+
+    // Point without variable name
+    exercic5();
 }
