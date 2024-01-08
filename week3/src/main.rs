@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 #[derive(Debug)]
 struct Person {
     first_name: String,
@@ -211,6 +213,73 @@ fn exercice6() {
     println!("The longest word is '{}'", longest_word);
 }
 
+fn add_item_begin_end_vectors(v: &mut Vec<i32>, item: i32) {
+    v.insert(0, item);
+    v.push(item);
+}
+
+fn extend_vector(v: &mut Vec<i32>, other: &Vec<i32>) {
+    v.extend(other);
+}
+
+fn exercice9() {
+    let mut v = vec![1, 2, 3];
+    v.push(4);
+    println!("{:?}", v); // Output: [1, 2, 3, 4]
+
+    // extend adds each element of the given slice to the vector
+    let more_numbers = vec![5, 6];
+    v.extend(more_numbers);
+    println!("{:?}", v);
+
+    // append adds the given vector to the vector, requires the vector to be mutable
+    let mut other_numbers = vec![7, 8];
+    v.append(&mut other_numbers);
+    println!("{:?}", v);
+
+    // insert items at a given index
+    v.insert(0, 0);
+    println!("{:?}", v); // Output: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+
+    // Add item at the beginning and end of the vector
+    add_item_begin_end_vectors(&mut v, 12);
+    println!("{:?}", v); // Output: [12, 0, 1, 2, 3, 4, 5, 6, 7, 8, 12]
+
+    // Extend vector with an other vector
+    let other = vec![10, 11];
+    extend_vector(&mut v, &other);
+    println!("{:?}", v); // Output: [10, 11, 12, 0, 1, 2, 3, 4, 5, 6, 7, 8, 12, 10, 11]
+}
+
+fn exercice10() {
+    let mut reviews: HashMap<String, String> = HashMap::new();
+
+    reviews.insert(
+        String::from("Ancient Roman History"),
+        String::from("Very accurate."),
+    );
+    reviews.insert(
+        String::from("Cooking with Rhubarb"),
+        String::from("Sweet recipes."),
+    );
+    reviews.insert(
+        String::from("Programming in Rust"),
+        String::from("Great examples."),
+    );
+
+    // Look for a specific review
+    let book: &str = "Programming in Rust";
+    println!("\nReview for \'{}\': {:?}", book, reviews.get(book));
+
+    // Remove book review
+    let obsolete: &str = "Ancient Roman History";
+    println!("\n'{}\' removed.", obsolete);
+    reviews.remove(obsolete);
+
+    // Confirm book review removed
+    println!("\nReview for \'{}\': {:?}", obsolete, reviews.get(obsolete));
+}
+
 fn main() {
     // Concatenation of full name from a struct
     //exerice1();
@@ -233,4 +302,10 @@ fn main() {
     // Manque tous les autres exercices
     // Ecrasés par ce putain de Git
     // et ça continue
+
+    // Vector methods
+    exercice9();
+
+    // HashMap
+    //exercice10();
 }
