@@ -213,6 +213,47 @@ fn exercice6() {
     println!("The longest word is '{}'", longest_word);
 }
 
+fn get_item(index: usize) {
+    //let index = 3; // this looks like an unsigned integer, but it's actually a usize
+    let vec = vec![1, 2, 3, 4, 5];
+
+    // Retrieve a value at a specific index
+    let value = vec.get(index).unwrap();
+
+    // print the value
+    println!("The value at index {} is {:?}", index, value);
+}
+
+fn vector_sum(vec: &Vec<i32>) -> i32 {
+    let mut sum = 0;
+    for value in vec {
+        sum += value;
+    }
+    sum
+}
+
+fn exercice8() {
+    let vec = vec![1, 2, 3, 4, 5];
+    get_item(3);
+
+    // Retrieve a value at a specific index
+    let third_value = vec[2];
+    println!("The third value in the vector is: {}", third_value);
+
+    // Retrieve the last value
+    let last_value = vec.last().unwrap();
+    println!("The last value in the vector is: {}", last_value);
+
+    // Retrieve the first value using pattern matching
+    match vec.first() {
+        Some(first_value) => println!("The first value in the vector is: {}", first_value),
+        None => println!("The vector is empty!"),
+    }
+
+    let vector_sum = vector_sum(&vec);
+    println!("The sum of the vector is: {}", vector_sum);
+}
+
 fn add_item_begin_end_vectors(v: &mut Vec<i32>, item: i32) {
     v.insert(0, item);
     v.push(item);
@@ -303,8 +344,11 @@ fn main() {
     // Ecrasés par ce putain de Git
     // et ça continue
 
+    // Vector items sum
+    //exercice8()
+
     // Vector methods
-    exercice9();
+    //exercice9();
 
     // HashMap
     //exercice10();
